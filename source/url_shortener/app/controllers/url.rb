@@ -5,5 +5,5 @@ end
 post '/urls' do #create new url
 end
 
-get '/:short_url' do # redirect to long url
+get '/:short_url' do # redirct to long url
 end

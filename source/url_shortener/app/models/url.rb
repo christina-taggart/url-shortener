@@ -3,6 +3,6 @@ class Url < ActiveRecord::Base
   before_save :generate_short_key
 
   def generate_short_key
-    self.short_key = Faker::Lorem.word + rand(100).to_s
+    self.short_key = Faker::Lorem.word.split('').shuffle.join + rand(100).to_s
   end
 end
