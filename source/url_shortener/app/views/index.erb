@@ -4,4 +4,7 @@
     <input class="submit-text" type="text" name="long_url" value="enter a url" onclick='javascript: this.value = ""'>
     <button class="submit-button" type="submit">Shorten!</button>
   </form>
+  <% if @error %>
+    <p class="error-message">Invalid URL</p>
+  <% end %>
 </div>
