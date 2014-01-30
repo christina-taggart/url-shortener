@@ -1,6 +1,6 @@
 get '/' do
   @error = params[:error]
-  @short_key = params{:short_key}
+  @short_key = params[:short_key]
   erb :index
 end
 
