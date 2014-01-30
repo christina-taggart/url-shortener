@@ -15,7 +15,7 @@ post '/urls' do #create new url
   end
 end
 
-get '/:short_url' do # redirct to long url
+get '/:short_url' do # redirect to long url
   desired_url = Url.where(short_key: params[:short_url]).first
   redirect "#{desired_url.long_url}"
 end

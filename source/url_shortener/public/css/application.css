@@ -17,6 +17,15 @@ h1 {
   text-shadow: 3px 3px #411817;
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .submit-button {
   background-color: #224f22;
   border-radius: 10px;
@@ -37,6 +46,10 @@ h1 {
 
 .error-message {
   color: orange;
+}
+
+.short-url {
+  color: white;
 }
 
 #surly-form {
