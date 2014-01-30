@@ -2,7 +2,7 @@
   <form name="input" action="/urls" method="post">
 Please enter the url: <input type="text" name="full_url"><br>
 <div class = "hidden">
-<input type="text" name="short_url" value="<%= rand(100000)%>">
+<input type="text" name="short_url" value="<%= Digest::SHA256.new%>">
 </div>
 <input type="submit" value="Shorten my url!">
 <!-- Last name: <input type="text" name="lastname"> -->
