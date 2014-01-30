@@ -10,4 +10,7 @@
   <% @shortened_urls.each do |url| %>
   <%= "localhost:9393/" + url.url_extension %><br>
   <% end %>
+  <% if @error %>
+  <p>Bad URL</p>
+  <% end %>
 </div>

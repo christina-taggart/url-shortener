@@ -8,13 +8,18 @@ post '/' do
 end
 
 get '/urls' do
+  @error = params[:error]
   @shortened_urls = Url.all
   erb :urls
 end
 
 post '/urls' do
-  Url.create(long_url: params[:long_url], click_count: 0)
-  redirect :urls
+  url = Url.new(long_url: params[:long_url], click_count: 0)
+  if url.save
+    redirect :urls
+  else
+    redirect '/urls?error=true'
+  end
 end
 
 get "/:url_extension" do
