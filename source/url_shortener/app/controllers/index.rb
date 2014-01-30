@@ -4,7 +4,7 @@ get '/' do
 end
 
 post '/urls' do
-
+# Url.create!(long_url: params['long_url'], short_url: )
 
 end
 
