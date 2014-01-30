@@ -12,10 +12,8 @@ get '/' do
 end
 
 post '/urls' do
-  potential = Url.create(params)
-  puts "potential is #{potential}"
-  session[:errors] = potential.errors.full_messages unless potential.valid?
-  puts "session has #{session[:errors]}"
+  url = Url.create(params)
+  session[:errors] = url.errors.full_messages unless url.valid?
   redirect '/'
 end
 
