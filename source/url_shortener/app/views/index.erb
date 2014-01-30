@@ -6,7 +6,9 @@
   </form>
   <ul>
   <% @urls.each do |url|%>
-  <li><%= url.short_url %></li>
+    <li>
+      <a href="/<%= url.short_url %>"><%= url.short_url %></a> <%= url.count %> hits
+    </li>
   <% end %>
   </ul>
 </div>
