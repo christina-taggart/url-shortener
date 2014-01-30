@@ -1,7 +1,10 @@
 class Url < ActiveRecord::Base
 
+  before_save :url_shortener
+
   def url_shortener
-    "short.ly/" + extension_generator
+    self.short_url = "short.ly/" + extension_generator
+    # self.short_url = extension_generator
   end
 
   private

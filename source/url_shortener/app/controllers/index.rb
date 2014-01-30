@@ -4,9 +4,7 @@ get '/' do
 end
 
 get '/:long_url' do
-  @long_url = params[:long_url]
-  @short_url = "short.ly/" + [("a".."z").to_a, ("A".."Z").to_a, (0..9).to_a].flatten.sample(6).join
-  #Url.create(@long_url, @short_url, @click_count)
+  @this_url = Url.create(long_url: params[:long_url])
   erb :url_input
 end
 
@@ -14,10 +12,16 @@ post '/urls' do
 
 end
 
-get '/:short_url' do
-
-  erb :url_input
+get "/:shortened_url" do
+  @short_url = Url.where(short_url: params[:shortened_url])
+  @click_count += 1
+  erb :url_output
 end
+
+# post "/#{@this_url.short_url}" do
+#   @user_input = params[:user_input]
+#   redirect @long_url
+# end
 
 # get '/:short_url' do
 
