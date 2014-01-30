@@ -4,16 +4,16 @@ end
 
 post '/' do
   Url.create(long_url: params[:long_url])
-  erb :index
+  redirect :urls
 end
 
+get '/urls' do
+  @shortened_urls = Url.all
+  erb :urls
+end
 # get '/:long_url' do
 #   @this_url = Url.create(long_url: params[:long_url])
 #   erb :url_input
-# end
-
-# post '/urls' do
-
 # end
 
 # get "/:shortened_url" do

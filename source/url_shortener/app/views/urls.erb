@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Short.ly</h1>
+    <form name="input" action="index.erb" method="post">
+    <input type="text" name="long_url">
+    <input type="submit" value="submit">
+  </form>
+</div>
+
+<div class="url_history">
+  <% @shortened_urls.each do |url| %>
+  <%= url.short_url %><br>
+  <% end %>
+</div>

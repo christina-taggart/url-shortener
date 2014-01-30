@@ -4,7 +4,15 @@
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
   text-align: center;
+  font-family: Verdana;
 }
 th {
   text-align: left;
+}
+
+.url_history {
+  text-align: center;
+  margin: 20px auto;
+  border: 1px dotted black;
+  width: 300px;
 }
