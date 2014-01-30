@@ -1,4 +1,16 @@
 <div class="container">
 <h1>Here is your shortened url</h1>
-<%= "localhost:9393/#{@url_digest}" %>
+
+<p id="user_url">
+	<%= "#{@user_url.url_digest}" %>
+</p>
+
+<p>This page has been visited <%= "#{@user_url.visit_count}" %> times.</p>
+
+Shorten another url!
+<form action="/url" method="post">
+	<input type="text"  name="original_url">
+	<input type="submit" value="get url">
+</form>
+
 </div>

@@ -1,6 +1,9 @@
 <div class="container">
   <h1>Shorten your url</h1>
-    <form action="/url" method="post">
+    <% if @errors %>
+      <p>The url input was invalid. Please try a different one.</p>
+    <% end %>
+  <form action="/url" method="post">
     <input type="text"  name="original_url">
     <input type="submit" value="get url">
   </form>

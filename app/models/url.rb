@@ -3,6 +3,8 @@ class Url < ActiveRecord::Base
   validates :url_digest, uniqueness: true
   after_initialize :init
 
+  validates :original_url, :format => { :with => /.+\...+/ }
+
   def init
   	self.visit_count ||= 0
   end
