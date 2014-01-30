@@ -1,5 +1,5 @@
 class Url < ActiveRecord::Base
-
+  validates :long_url, format: { with: /(?=.*http)(?=.*w{3}).*|(.com)|(.edu)|(.gov)|(.net)/i, message: "Please enter a valid URL!"}
   before_save :url_shortener
 
   def url_shortener
