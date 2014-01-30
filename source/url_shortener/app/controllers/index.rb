@@ -6,11 +6,12 @@ end
 
 
 post '/urls' do
-  @url = Url.create(long_url: params[:url], short_url: 'localhost:9393' + '/' + SecureRandom.hex(3))
+  p params
+  @url = Url.create(long_url: params[:url], short_url: SecureRandom.hex(3))
   erb :url
 end
 
 get '/:short_url' do
   short = Url.where(short_url: params[:short_url]).first
-  redirect('#{short}')
+  redirect short.long_url
 end

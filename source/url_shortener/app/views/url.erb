@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Emi.ly</h1>
-  <form name="input" action='/urls' method="post">
-    Long URL: <input type="text">
+  <form action='/urls' method="post">
+    Long URL: <input type="text" name="url">
     <input type="submit" value="Shorten!">
   </form>
   <div><%= @url.short_url %></div>
