@@ -1,4 +1,5 @@
 <form action="/urls" method="post">
+  <h4><%= @error_msg if @error_msg%></h4>
   URL: <input type="text" name="long_url"><br><br>
   <input type="submit" value="Shorten url"><br>
 </form>
