@@ -1,6 +1,6 @@
 class Url < ActiveRecord::Base
   before_validation :format_url
-  validates :long_url, :short_key, uniqueness: true
+  validates :short_key, uniqueness: true
   validates :long_url, format: { with: /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/}
   validates :long_url, format: { with: /\..+/ }
   before_save :generate_short_key
