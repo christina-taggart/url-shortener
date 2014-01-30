@@ -14,6 +14,11 @@ get '/:short_url' do
 end
 
 post '/urls' do
-  @new_url = Url.create(params)
-  redirect  "/#{@new_url.short_url}/stats"
+  @new_url = Url.new(params)
+  if @new_url.valid?
+    @new_url.save
+    redirect  "/#{@new_url.short_url}/stats"
+  else
+    "That's not a valid url!"
+  end
 end
