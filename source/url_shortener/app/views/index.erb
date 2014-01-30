@@ -1,12 +1,15 @@
 <div class="container">
-  <h1>Matthanuels Amazing URL shortener!™</h1>
+  <h1>Matthanuels Amazing URL Shortener!™</h1>
   <p>Please enter your URL to be shortned, then step back</p>
 
  <form action="/urls" method="post">
-  <textarea name="long_url" placeholder="Place URL here!"></textarea>
+  <input type='text' id="url_input" name="long_url" placeholder="Place URL here!">
     <input type="submit" value="Transmogrify">
  </form>
-
+<% urls = Url.find(:all, :order => 'id desc', :limit => 5) %>
+<% urls.each do |url| %>
+<%= url[:long_url] %><br> short url = localhost:9393/<%= url[:short_url] %> <br><br>
+<% end %>
 
 
 </div>

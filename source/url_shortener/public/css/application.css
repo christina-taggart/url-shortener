@@ -7,3 +7,7 @@
 th {
   text-align: left;
 }
+
+#url_input {
+  width: 20em;
+}
