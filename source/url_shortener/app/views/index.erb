@@ -4,7 +4,9 @@
     <input type="text" name="address">
     <input type="submit" value="Shorten">
   </form>
-
-  <p><%= %></p>
-
+  <ul>
+  <% @urls.each do |url|%>
+  <li><%= url.short_url %></li>
+  <% end %>
+  </ul>
 </div>

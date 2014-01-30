@@ -1,5 +1,6 @@
 get '/' do
   # Look in app/views/index.erb
+  @urls = Url.all
   erb :index
 end
 
