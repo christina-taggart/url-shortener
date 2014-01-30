@@ -10,5 +10,6 @@ end
 
 get '/:short_url' do
 url_object = Url.find_by_short_url(params[:short_url])
+Url.increment_counter(:click_count, url_object[:id])
 redirect "http://#{url_object[:long_url]}"
 end
