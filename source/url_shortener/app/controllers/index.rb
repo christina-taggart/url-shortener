@@ -3,10 +3,12 @@ get '/' do
   erb :index
 end
 
-post '/urls' do
-  #Create shortened url
+get '/:short_url' do
+  @url = Url.find_by_short_url params[:short_url]
+  @url.increment!(:click_counter)
+  redirect "#{@url.long_url}"
 end
 
-get '/:short_url' do
-  #redirect to long url
+post '/urls' do
+  #Create shortened url
 end
