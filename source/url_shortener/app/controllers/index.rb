@@ -1,14 +1,19 @@
 get '/' do
-  # Look in app/views/index.erb
   erb :index
+end
+
+get '/:short_url/stats' do
+  @url = Url.find_by_short_url params[:short_url]
+  erb :short_url_stats
 end
 
 get '/:short_url' do
   @url = Url.find_by_short_url params[:short_url]
   @url.increment!(:click_counter)
-  redirect "#{@url.long_url}"
+  redirect "http://#{@url.long_url}"
 end
 
 post '/urls' do
-  #Create shortened url
+  @new_url = Url.create(params)
+  redirect  "/#{@new_url.short_url}/stats"
 end
