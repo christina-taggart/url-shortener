@@ -6,5 +6,7 @@
   </form>
   <% if @error %>
     <p class="error-message">Invalid URL</p>
+  <% elsif @short_key %>
+    <p class="short-url">Your shortened url: http://localhost:9393/<%= @short_key[:short_key] %></p>
   <% end %>
 </div>

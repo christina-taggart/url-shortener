@@ -7,7 +7,9 @@ end
 post '/urls' do #create new url
   new_url = Url.new(params)
   if new_url.save
-    redirect '/?short_key=true'
+    puts "you're here"
+    p new_url.short_key
+    redirect "/?short_key=#{new_url.short_key}"
   else
     redirect '/?error=true'
   end
