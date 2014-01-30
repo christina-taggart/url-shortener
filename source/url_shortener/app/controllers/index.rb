@@ -12,6 +12,9 @@ post '/urls' do
 
 end
 
+get '/:short_url' do
+  erb url_input
+end
 
 # get '/:short_url' do
 

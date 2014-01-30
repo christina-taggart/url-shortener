@@ -1,14 +1,10 @@
-class URL < ActiveRecord::Base
+class Url < ActiveRecord::Base
 
-  def url_shortener
-    @long_url
+  def self.url_shortener
+    @short_url = "short.ly/" + Url.extension_generator
   end
 
   def self.extension_generator
-    p [(a..z), (A..Z), (0..9)].sample(6)
+    [("a".."z").to_a, ("A".."Z").to_a, (0..9).to_a].flatten.sample(6).join
   end
 end
-
-p URL.extension_generator
-
-# shortly
