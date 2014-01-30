@@ -1,4 +1,10 @@
 <div class="container">
+  <% if @errors %>
+  <p>Could not create short url because:</p>
+    <% @errors.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  <% end %>
   <h1>Shorten your URLs</h1>
   <form name="shorten" action="/urls" method="post">
     <input type="text" name="address">

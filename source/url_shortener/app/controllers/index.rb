@@ -1,11 +1,21 @@
+enable :sessions
+
 get '/' do
   # Look in app/views/index.erb
+  puts "session has #{session[:errors]}"
   @urls = Url.all
+  if session[:errors]
+    @errors = session[:errors]
+    session.clear
+  end
   erb :index
 end
 
 post '/urls' do
-  Url.create(params)
+  potential = Url.create(params)
+  puts "potential is #{potential}"
+  session[:errors] = potential.errors.full_messages unless potential.valid?
+  puts "session has #{session[:errors]}"
   redirect '/'
 end
 
