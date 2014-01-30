@@ -4,8 +4,7 @@ get '/' do
 end
 
 post '/urls' do
-# Url.create!(long_url: params['long_url'], short_url: )
-
+Url.create!(long_url: params['long_url'], short_url: Url.url_generator, click_count: 0)
 end
 
 get '/:short_url' do
